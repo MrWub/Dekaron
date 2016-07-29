@@ -26,7 +26,7 @@ public class Mob {
 		this.name = name;
 	}
 
-	public void setHandle(LivingEntity handle) {
+	private void setHandle(LivingEntity handle) {
 		this.handle = handle;
 	}
 
