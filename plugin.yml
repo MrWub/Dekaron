@@ -1,0 +1,6 @@
+name: Dekaron
+main: com.github.MrWub.Dekaron.Dekaron
+version: 1.0
+command:
+  dkr:
+    description: 'Dekaron插件主命令'
