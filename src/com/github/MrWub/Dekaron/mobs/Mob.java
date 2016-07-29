@@ -1,17 +1,23 @@
 package com.github.MrWub.Dekaron.mobs;
 
-import java.io.EOFException;
-
 import org.bukkit.Location;
-import org.bukkit.World;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 
 public class Mob {
 	private LivingEntity handle = null;
 	private MobType mobType = null;
-	private int flag = 0;
-	private String name = "DekaronMob";
+	private int MID = -1;
+	private String name = "";	
+	
+	
+	public static Mob spawnMob(String name, MobType mt, Location loc){
+		Mob mob = new Mob();
+		mob.setHandle((LivingEntity) loc.getWorld().spawnEntity(loc, mt.getEntityType()));
+		mob.setMID(MobsManager.newID());
+		mob.setName(name);
+		return mob;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -20,12 +26,10 @@ public class Mob {
 		this.name = name;
 	}
 
-	public static Mob spawnMob(MobType mt, Location loc){
-		Mob mob = new Mob();
-		mob.handle = (LivingEntity) loc.getWorld().spawnEntity(loc, mt.getEntityType());
-		return mob;
+	public void setHandle(LivingEntity handle) {
+		this.handle = handle;
 	}
-	
+
 	public LivingEntity getHandle() {
 		return handle;
 	}
@@ -34,17 +38,16 @@ public class Mob {
 		return mobType;
 	}
 
-	public void setMobType(MobType mobType) {
-		this.mobType = mobType;
+	public int getMID() {
+		return MID;
 	}
 
-	public int getFlag() {
-		return flag;
+	private void setMID(int id) {
+		this.MID = id;
 	}
 
-	public void setFlag(int flag) {
-		this.flag = flag;
+	public void kill() {
+		getHandle().remove();
 	}
-	
-	
+
 }
