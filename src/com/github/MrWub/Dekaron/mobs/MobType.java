@@ -7,6 +7,7 @@ import org.bukkit.inventory.ItemStack;
 
 import com.github.MrWub.Dekaron.utils.wrapped.ParamForMobTypeCreate;
 
+
 public class MobType {
 	private EntityType entityType = null;
 	private List<ItemStack> extraDropItems = null;
