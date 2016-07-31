@@ -10,16 +10,25 @@ import com.github.MrWub.Dekaron.utils.wrapped.ParamForMobTypeCreate;
 public class MobType {
 	private EntityType entityType = null;
 	private List<ItemStack> extraDropItems = null;
+	private boolean disPlayTagName = false;
 	/**
 	 * 不应直接使用该方法，而是应用MobTypesManager中的addMobType方法
 	 * @param param 生成参数，需要构造
 	 * @return 怪物类型实例
+	 * @deprecated
 	 */
 	public static MobType createMobType(ParamForMobTypeCreate param) {
 		MobType mt = new MobType();
 		mt.setEntityType(param.type);
 		mt.setExtraDropItems(param.extraDropItems);
+		mt.setDisPlayTagName(param.disPlayTagName);
 		return mt;
+	}
+	public boolean isDisPlayTagName() {
+		return disPlayTagName;
+	}
+	private void setDisPlayTagName(boolean disPlayTagName) {
+		this.disPlayTagName = disPlayTagName;
 	}
 	public EntityType getEntityType() {
 		return entityType;

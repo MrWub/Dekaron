@@ -18,6 +18,7 @@ public class Mob {
 	 * 生成一个怪物,应该使用MobManager中的spawnMob方法而不是直接使用该方法.
 	 * @param param 生成的参数，需要用构造.
 	 * @return 怪物实例
+	 * @deprecated
 	 */
 	public static Mob spawnMob(ParamForMobSpawn param){
 		Mob mob = new Mob();
@@ -25,6 +26,9 @@ public class Mob {
 				(LivingEntity)param.loc.getWorld().spawnEntity(param.loc, param.mt.getEntityType()));
 		mob.setMID(MobsManager.newID());
 		mob.setName(param.name);
+		
+		mob.getHandle().setCustomName(param.name);
+		mob.getHandle().setCustomNameVisible(param.mt.isDisPlayTagName());
 		return mob;
 	}
 
