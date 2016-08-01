@@ -12,7 +12,6 @@ public abstract class AbstractMob {
 	private LivingEntity handle = null;
 	private MobType mobType = null;
 	private int MID = -1;
-	private String name = "DekaronMob";	
 	
 	/**
 	 * 构造一个怪物,应该使用MobManager中的spawnMob方法而不是直接构造.
@@ -20,7 +19,6 @@ public abstract class AbstractMob {
 	 */
 	public AbstractMob(ParamForMobSpawn param) {
 		this.handle = (LivingEntity)param.loc.getWorld().spawnEntity(param.loc, param.mt.getEntityType());
-		this.name = param.name;
 		this.mobType = param.mt;
 		try {
 			this.MID = MobVersionManager.getMobsManager().newID();
@@ -29,13 +27,6 @@ public abstract class AbstractMob {
 		}
 	}
 	
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	public LivingEntity getHandle() {
 		return handle;
