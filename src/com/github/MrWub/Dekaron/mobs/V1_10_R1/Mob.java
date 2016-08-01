@@ -6,7 +6,7 @@ import com.github.MrWub.Dekaron.utils.wrapped.ParamForMobSpawn;
 public class Mob extends AbstractMob{
 	public Mob(ParamForMobSpawn param) {
 		super(param);
-		getHandle().setCustomName(getName());
+		getHandle().setCustomName(getMobType().getName());
 		getHandle().setCustomNameVisible(param.mt.isDisPlayTagName());
 	}
 }

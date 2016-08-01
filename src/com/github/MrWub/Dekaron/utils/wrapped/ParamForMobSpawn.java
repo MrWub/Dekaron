@@ -9,7 +9,6 @@ import org.bukkit.inventory.ItemStack;
 import com.github.MrWub.Dekaron.mobs.MobType;
 
 public class ParamForMobSpawn {
-	public String name = "DekaronMob";
 	public MobType mt = null;
 	public Location loc = null;
 	/**
@@ -18,10 +17,8 @@ public class ParamForMobSpawn {
 	 * @param mt 怪物类型
 	 * @param loc 位置
 	 */	
-	public ParamForMobSpawn(String name, MobType mt, Location loc) {
-		if (name!=null) this.name = name;
+	public ParamForMobSpawn(MobType mt, Location loc) {
 		this.mt = mt;
 		this.loc = loc;
 	}
-
 }
